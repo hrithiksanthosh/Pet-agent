@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="shortcut icon" href="img/lifestyleStore.png" />
+    <title>Pet Agent</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Boostrap-->
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans:300,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- latest compiled and minified CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" type="text/css">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+</head>
+
+<body>
+    <div>
+        <div class="container">
+            <header>
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Pet Agent"><Span class="logoname "> Pet Agent</Span>
+
+                    </a>
+                </div>
+
+                <nav>
+
+
+                    <div class="navbutton">
+                        <a href="login">Login</a>
+                    </div>
+
+                    <div class="navbutton">
+                        <a href="register">Register</a>
+                    </div>
+
+
+                </nav>
+            </header>
+
+            <div id="bannerImage">
+                <div class="container">
+                    <center>
+                        <div id="bannerContent">
+                            <h1><b>WELCOME</b></h1>
+                            <p style="font-size:150%;">Help us save a life</p>
+                        </div>
+                    </center>
+                </div>
+            </div>
+            <div class="card-deck my-5">
+
+                <div class="card shadow" style="width: 18rem;">
+                    <img src="{{ url_for('static', filename='img/dog1.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body" style="background-color:#ced4da;">
+                        <h5 class="card-title" style="font-family:verdana;font-size:150%;text-align:center;" ><b>Adopt</b></h5>
+                        <p style="text-align:center;">Let us help you find your pet.</p>
+                    </div>
+                </div>
+
+
+                <div class="card shadow" style="width: 18rem;">
+<!--                    href="{{ url_for('static', filename='img/cat1.jpg') }}"-->
+                    <img src="{{ url_for('static', filename='img/cat1.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body" style="background-color:#ced4da;" >
+                        <h5 class="card-title" style="font-family:verdana;font-size:150%;text-align:center;" ><b>Rehome</b></h5>
+                        <p style="text-align:center;">Rehome your pet with us.</p>
+                    </div>
+                </div>
+
+
+                <div class="card shadow" style="width: 18rem;">
+                    <img src="{{ url_for('static', filename='img/dog2.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body" style="background-color:#ced4da;">
+                        <h5 class="card-title" style="font-family:verdana;font-size:150%;text-align:center;" ><b>Contact us</b></h5>
+                        <p style="text-align:center;">email : notification.petagent@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="container">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="thumbnail">
+                            <a href="products.php">
+                                <img src="img/dog1.jpg" alt="Camera">
+                            </a>
+                            <center>
+                                <div class="caption">
+                                    <p id="autoResize">Pet</p>
+                                    <p>Choose among the best available in the world.</p>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="thumbnail">
+                            <a href="products.php">
+                                <img src="img/cat1.jpg" alt="Watch">
+                            </a>
+                            <center>
+                                <div class="caption">
+                                    <p id="autoResize">Pet</p>
+                                    <p>Original s from the best .</p>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="thumbnail">
+                            <a href="products.php">
+                                <img src="img/dog2.jpg" alt="Shirt">
+                            </a>
+                            <center>
+                                <div class="caption">
+                                    <p id="autoResize">Pet</p>
+                                    <p>Our exquisite collection .</p>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <br><br> <br><br><br><br>
+            <footer class="footer">
+                <div class="container">
+                    <center>
+                        <p>pet agent</p>
+
+                    </center>
+                </div>
+            </footer>
+        </div>
+        <!-- jquery library -->
+        <script type="text/javascript" src="bootstrap/js/jquery-3.2.1.min.js"></script>
+        <!-- Latest compiled and minified javascript  -->
+        <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

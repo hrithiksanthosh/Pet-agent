@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <p>My Google Maps Demo</p>
+    <form>
+      <input type="number" id="Lat" name="Lat" value={{pup["address"][1]}} />
+      <input type="number" id="Lng" name="Lng" value={{pup["address"][2]}} />
+    </form>
+    <div id="map"></div>
+    <script>
+      var latitude = document.getElementById('Lat').value;
+	  var longitude = document.getElementById('Lng').value;
+	  console.log(longitude)
+	  console.log(latitude)
+      function initMap() {
+
+        var test= {lat: parseFloat(latitude), lng:parseFloat(longitude) };
+        console.log(latitude)
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: test
+        });
+        var marker = new google.maps.Marker({
+          position: test,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src=
+"https://maps.googleapis.com/maps/api/js?key=[API_KEY]&callback=initMap">
+    </script>
+  </body>
+</html>

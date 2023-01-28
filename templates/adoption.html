@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="shortcut icon" href="#" />
+    <title>Pet Agent</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Boostrap-->
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans:300,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modelform.css') }}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- latest compiled and minified CSS -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css">
+<!--    {{ url_for('static', filename='css/style.css') }}-->
+    <!-- External CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/adoption.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+</head>
+
+<body>
+    <div>
+        <div class="container">
+            <header>
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Pet Agent"><Span class="logoname "> Pet Agent</Span>
+
+                    </a>
+                </div>
+
+                <nav>
+
+
+                    <div class="navbutton">
+                        <a href="allpets">Adopt pet</a>
+                    </div>
+
+                    <div class="navbutton">
+                        <a href="mypets">My pets</a>
+                    </div>
+
+                    <div class="navbutton">
+                        <a href="upload">Add pet</a>
+                    </div>
+
+                    <div class="navbutton">
+                        <a href="logout">Logout</a>
+                    </div>
+
+
+                </nav>
+            </header>
+
+
+            <main>
+                <div class="herobox2">
+                    <img src="data:image/png;base64, {{pup["profile_image"]}}" alt="person servicing a bike in dublin">
+                </div>
+                <div class="herobox1">
+
+                    <h1>{{pup["name"]}}</h1>
+                    <p>Breed: {{pup["breed"]}} </p>
+                    <p>Age: {{pup["age"]}} </p>
+                    <p>Gender: {{pup["gender"]}} </p>
+                    <p>Type: {{pup["type"]}} </p>
+                    <p>Weight: {{pup["weight"]}} </p>
+                    <p>Address: {{pup["address"][0]}} </p>
+                    <p>Owner: {{pup["owner"]}} </p>
+                    <p>Contact email: {{pup["contactemail"]}} </p>
+                </div>
+
+
+
+            </main>
+             <main>
+                <div class="box1">
+                     <section class="email" #email>
+                <form action="{{ url_for('adopt') }}" method="POST" onsubmit="return Validate(this)" style="border:1px solid #ccc" id="pets">
+                    <div class="form-container">
+                        <center>
+                            <h1><b>Contact Owner</b></h1>
+                        </center>
+
+                        <input type="hidden" class="petText" value={{pup["contactemail"]}} id="owneremail"  name="owneremail" required>
+                        <input type="hidden" class="petText" value={{pup["name"]}} id="name"  name="name" required>
+                        <input type="hidden" class="petText" value={{pup["breed"]}} id="breed"  name="breed" required>
+
+                        <label for="yourmail"><b>Your Contact email:</b> <span class="text-muted text-danger"> *</span></label>
+                        <input type="text" class="petText" value={{currentuser}} id="yourmail" placeholder="Contact email" name="yourmail" readonly>
+
+                        <label for="yourmsg"><b>Your Message:</b> <span class="text-muted text-danger"> *</span></label>
+                        <input type="text" class="petText" value="" id="yourmsg" placeholder="Type your message" name="yourmsg" required>
+
+                        <input type="submit">
+                    </div>
+                </form>
+            </section>
+                </div>
+                <div class="box2">
+
+                    <section class="maps" #map>
+                    <form>
+                      <input type="hidden" id="Lat" name="Lat" value={{pup["address"][1]}} />
+                      <input type="hidden" id="Lng" name="Lng" value={{pup["address"][2]}} />
+                    </form>
+                    <div id="map"></div>
+                    <script>
+                      var latitude = document.getElementById('Lat').value;
+                      var longitude = document.getElementById('Lng').value;
+                      console.log(longitude)
+                      console.log(latitude)
+                      function initMap() {
+
+                        var test= {lat: parseFloat(latitude), lng:parseFloat(longitude) };
+                        console.log(latitude)
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                          zoom: 15,
+                          center: test
+                        });
+                        var marker = new google.maps.Marker({
+                          position: test,
+                          map: map
+                        });
+                      }
+                    </script>
+                    <script async defer
+                    src=
+                "https://maps.googleapis.com/maps/api/js?key=[API_KEY]&callback=initMap" >
+                    </script>
+            </section>
+
+
+                </div>
+
+
+
+            </main>
+
+
+            <br><br> <br><br><br><br>
+            <footer class="footer">
+                <div class="container">
+                    <center>
+                        <p>pet agent</p>
+
+                    </center>
+                </div>
+            </footer>
+        </div>
+        <!-- jquery library -->
+        <script type="text/javascript" src="bootstrap/js/jquery-3.2.1.min.js"></script>
+        <!-- Latest compiled and minified javascript  -->
+        <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

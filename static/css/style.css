@@ -1,0 +1,232 @@
+html {
+    min-height: 100%;
+    position: relative;
+
+}
+
+body {
+    background-image: linear-gradient(#1b4332, #413c3c);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.logo img {
+    height: 60px;
+    width: 60px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 20px;
+}
+
+nav a.mybutton {
+    margin-left: 30px;
+}
+
+.navbutton a {
+    color: white;
+}
+
+.logoname {
+    position: absolute;
+    color: white;
+    font-style: oblique;
+    font-weight: bold;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin-top: 10px;
+    margin-left: 4px;
+
+}
+
+.navbutton {
+    border: 1px solid white;
+    padding: 11px 25px;
+    font-family: 'Playfair Display', serif;
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.navbutton:hover .dropdown {
+    display: block;
+}
+
+.dropdown .navbutton {
+    width: 120px;
+    background-color: white;
+}
+
+.dropdown .navbutton a {
+    color: #FA4083;
+}
+
+
+/* .inputwrapper {
+    margin-bottom: 30px;
+} */
+
+
+.dropdown {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.navbutton:hover .dropdown {
+    display: block;
+}
+
+.dropdown .navbutton {
+    width: 120px;
+    background-color: white;
+}
+
+.dropdown .navbutton a {
+    color: #FA4083;
+}
+
+
+.inputwrapper {
+    margin-bottom: 30px;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+
+#bannerImage {
+    padding-top: 80px;
+    padding-bottom: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #f8f8f8;
+    background: url(../img/Index1.jpg);
+    background-size: cover;
+}
+#bannerImages {
+    padding-top: 80px;
+    padding-bottom: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #f8f8f8;
+    background: url(../img/Background.jpg);
+    background-size: cover;
+}
+
+#bannerContent {
+    position: relative;
+    padding-top: 6%;
+    padding-bottom: 6%;
+    margin-top: 12%;
+    margin-bottom: 12%;
+    background-color: rgba(0, 0, 0, 0.377);
+    max-width: 660px;
+}
+
+.card-img-top {
+    float: left;
+    width: 348px;
+    height: 250px;
+    object-fit: cover;
+    border: 1px solid lightgrey;
+}
+
+.thumbnail .pets {
+    float: left;
+    width: 348px;
+    height: 250px;
+    object-fit: cover;
+    border: 1px solid lightgrey;
+}
+
+footer {
+    background-color: #101010;
+    color: #9d9d9d;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+    bottom: 0;
+}
+
+
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+@media (min-width:320px) {
+    #autoResize {
+        font-size: 12px;
+    }
+}
+
+@media (min-width:481px) {
+    #autoResize {
+        font-size: 16px;
+    }
+}
+
+@media (min-width:641px) {
+    #autoResize {
+        font-size: 18px;
+    }
+}
+
+@media (min-width:961px) {
+    #autoResize {
+        font-size: 20px;
+    }
+}
+
+@media (min-width:1000px) {
+    #autoResize {
+        font-size: 26px;
+    }
+}
+.w-100 {
+    width: 1024px !important;
+    height: 360px;
+}
+
+.box1 {
+    width: 200px;
+    flex: 2;
+
+}
+
+.box2 {
+    flex: 3;
+    margin-left: 400px;
+
+
+
+}
+
+.box1 #pets {
+    width: 500px;
+    margin-right: 100px;
+
+}

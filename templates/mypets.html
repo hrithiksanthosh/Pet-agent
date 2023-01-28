@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PET AGENT</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- latest compiled and minified CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" type="text/css">
+    <!-- jquery library -->
+    <script type="text/javascript" src="bootstrap/js/jquery-3.2.1.min.js"></script>
+    <!-- Latest compiled and minified javascript -->
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+</head>
+
+<body>
+<div class="container">
+            <header>
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Pet Agent"><Span class="logoname "> Pet Agent</Span>
+
+                    </a>
+
+
+
+                </div>
+                <nav>
+
+                    <div class="navbutton">
+                        <a href="allpets">Adopt</a>
+                    </div>
+
+                    <div class="navbutton">
+                        <a href="upload">Add Pet</a>
+                    </div>
+
+                    <div class="navbutton">
+                        <a href="logout">Logout</a>
+                    </div>
+                </nav>
+
+        </div>
+    <div>
+
+        <div class="container">
+
+            <div class="jumbotron" style="background-color:#f2cc8f;">
+                <h1 style="font-size:400%;text-align:center;"><b>My Pets</b></h1>
+                <p style="text-align:center;">Let us take a look at your pet uploads.</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <ul>
+                {% for pup in puppies %}
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail">
+                            <img src="data:image/png;base64, {{pup["profile_image"]}}" class="pets" alt="Cannon">
+                        </a>
+                        <center>
+                            <div class="caption" style="background-color:#f2cc8f;">
+                                <h3>{{pup["name"]}}</h3>
+                                <p>Breed : {{pup["breed"]}}</p>
+                                <p>Age : {{pup["age"]}}</p>
+                                <form action="deletepet" method="POST">
+                                   <input name="delete" value="{{pup["_id"]}}" type=hidden>
+                                   <button type="submit" style="background-color:#468faf;color:white;width:150px;
+                                    height:40px;border:solid;border-radius: 10px; border-color: #2a6f97;"> Delete Pet </button>
+                                </form>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+                {% endfor %}
+                </ul>
+        <br><br><br><br><br><br><br><br>
+        <footer class="footer">
+            <div class="container">
+                <center>
+
+                </center>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

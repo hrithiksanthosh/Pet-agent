@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modelform.css') }}" />
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=[API_KEY]&libraries=places&callback=initMap" async defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <form action="{{ url_for('edit') }}" method="POST" onsubmit="return Validate(this)" style="border:1px solid #ccc" id="pets"
+        enctype="multipart/form-data">
+        <div class="form-container">
+            <center>
+                <h1><b>DONATION FORM</b></h1>
+            </center>
+
+            <label for="contactemail"><b>Contact email:</b> <span class="text-muted text-danger"> *</span></label>
+            <input type="text" class="petText" value={{useremail}} id="contactemail" name="contactemail" readonly>
+
+
+            <label for="name"><b>Pet Name:</b> <span class="text-muted text-danger"> *</span></label>
+            <input type="text" class="petText" value="" id="name" placeholder="Pet Name" name="name" required>
+
+            <label for="type"><b>Pet Type:</b> <span class="text-muted text-danger"> *</span></label>
+            <input type="text" class="petText" value="" id="type" placeholder="Pet Type" name="type" required>
+
+            <label for="breed"><b>Pet Breed:</b> <span class="text-muted text-danger"> *</span></label>
+            <input type="text" class="petText" value="" id="breed" placeholder="Pet Breed" name="breed" required>
+
+            <label for="age"><b>Pet Age:</b> <span class="text-muted text-danger"> *</span></label>
+            <input type="number" class="petText" value="" id="age" placeholder="Pet Age" name="age" required>
+
+            <label for="gender"><b>Pet Gender:</b> <span class="text-muted text-danger"> *</span></label>
+            <input type="text" class="petText" value="" id="gender" placeholder="Pet Gender" name="gender" required>
+
+            <label for="weight"><b>Pet Weight:</b> <span class="text-muted text-danger"> *</span></label>
+            <input type="text" class="petText" value="" id="weight" placeholder="Pet Weight ( Mention kg or lb ) " name="weight" required>
+
+            <label for="owner"><b>Pet Owner:</b> <span class="text-muted text-danger"> *</span></label>
+            <input type="text" class="petText" value="" id="owner" placeholder="Pet Owner" name="owner" required>
+
+            <label for="address"><b>Location</b><span class="text-muted text-danger"> *</span></label>
+            <input type="text" class="petText" placeholder="Enter Location" value="" name="address" id="address">
+
+            <input type="hidden" id="Lat" name="Lat"  />
+            <input type="hidden" id="Lng" name="Lng" />
+
+            <label for="img"><b>Select Image</b><span class="text-muted"> *</span></label>
+            <input type="file" value="Browse" id="img" name="img" required>
+
+
+            <input type="submit">
+            <input class="button" type="button" onclick="window.location.replace('mypets')" value="Cancel" />
+
+        </div>
+        </div>
+    </form>
+
+
+</body>
+<script type="text/javascript">
+    function initialize() {
+        var input = document.getElementById('address');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            var place = autocomplete.getPlace();
+            document.getElementById('Lat').value = place.geometry.location.lat();
+            document.getElementById('Lng').value = place.geometry.location.lng();
+        });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modelform.css') }}" />
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=[API_KEY]&libraries=places&callback=initMap" async defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <form action="{{ url_for('verify') }}" method="POST" onsubmit="return Validate(this)" style="border:1px solid #ccc" id="pets"
+        enctype="multipart/form-data">
+        <div class="form-container">
+            <center>
+                <h1><b>REGISTRATION</b></h1>
+            </center>
+            <div class="msg">{{ msg }}</div>
+            <p>Please verify your email address in order to proceed with registration. You will recieve an otp.</p>
+
+            <label for="contactemail"><b>Your email:</b> <span class="text-muted text-danger"> *</span></label>
+            <input type="email" class="petText" value="" id="contactemail" placeholder="Contact email" name="contactemail" required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+
+            <input type="submit">
+        </div>
+        </div>
+    </form>
+
+</body>
+
+</html>
